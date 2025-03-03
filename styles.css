@@ -1,0 +1,205 @@
+/* ====== ESTILOS GENERALES ====== */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #1E1E2F; 
+    color: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ====== CONTENEDOR PRINCIPAL ====== */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin-bottom: 30px;
+}
+
+/* ====== TÍTULOS ====== */
+h1, h2 {
+    text-align: center;
+    color: #F1C40F; 
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+/* ====== SECCIÓN ECUACIÓN ====== */
+.equation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    text-align: center;
+    background: #23233A; 
+    padding: 40px 20px; 
+    border-radius: 10px;
+    margin: 20px auto; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px; 
+}
+
+.equation-container h2 {
+    margin-bottom: 20px; 
+}
+
+.equation-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* ====== SECCIONES: FORMULARIO & RESULTADOS ====== */
+.content {
+    display: flex;
+    align-items: stretch;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* ====== FORMULARIO ====== */
+.form-container {
+    flex: 1;
+    background: #23233A;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    min-width: 300px;
+    max-width: 400px;
+    height: auto; 
+}
+
+/* ====== ESTILOS PARA LABELS ====== */
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #F1C40F;
+}
+
+/* ====== ESTILOS PARA INPUTS ====== */
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #F1C40F;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: #1E1E2F;
+    color: white;
+}
+
+/* ====== BOTÓN ====== */
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background: #F1C40F;
+    color: #1E1E2F;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s;
+}
+
+.form-container button:hover {
+    background: #E6B800;
+    transform: scale(1.05);
+}
+
+/* ====== SECCIÓN DE RESULTADOS ====== */
+.result-container {
+    flex: 2;
+    background: #1E1E2F;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+/* ====== CONTENEDOR DE TABLA CON SCROLL ====== */
+.resultados-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 350px;
+    border: 1px solid #F1C40F;
+    border-radius: 5px;
+}
+
+/* ====== ESTILOS PARA TABLA ====== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #23233A;
+}
+
+table, th, td {
+    border: 1px solid #F1C40F;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+th {
+    background: #F1C40F;
+    color: #1E1E2F;
+}
+
+/* ====== SECCIÓN DE LA GRÁFICA ====== */
+.chart-container {
+    width: 100%;
+    height: 400px;
+    margin-top: 30px;
+}
+
+.chart-container h2 {
+    color: #F1C40F;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* ====== SECCIÓN DE RESULTADOS ADICIONALES ====== */
+.additional-results-container {
+    width: 100%;
+    background: #23233A;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 30px;
+}
+
+.additional-results-container h2 {
+    color: #F1C40F;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.additional-results {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.additional-results p {
+    margin: 0;
+}
