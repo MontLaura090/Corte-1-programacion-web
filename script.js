@@ -1,6 +1,10 @@
 function calcularY(A, B, C, D, E, X) {
     const numerador = Math.sin(A) + X * Math.cos(B) * (Math.sqrt(C ** 2) / Math.cos(D));
-    const denominador = X * C - Math.sqrt(A + B);
+    const denominador = X * C - Math.sqrt(Math.abs(A + B)); 
+    
+    // Evitar divisiones por cero o valores indefinidos
+    if (denominador === 0 || isNaN(denominador)) return NaN;
+
     const termino1 = numerador / denominador;
     const termino2 = (E * X) / Math.sin(X);
     const termino3 = Math.cos(A) / Math.sin(B);
@@ -49,7 +53,7 @@ function calcular(event) {
             // Detectar cambio de signo entre dos puntos consecutivos
             if (X_anterior !== null && Y_anterior !== null) {
                 if ((Y_anterior > 0 && y < 0) || (Y_anterior < 0 && y > 0)) {
-                    cortes++; // Hubo un cruce con el eje X
+                    cortes++; 
                 }
             }
 
@@ -70,6 +74,7 @@ function calcular(event) {
         tablaResultados.appendChild(fila);
     });
 
+    // Dibujar gráfico
     const ctx = document.getElementById('grafica').getContext('2d');
     if (window.grafica instanceof Chart) {
         window.grafica.destroy(); 
@@ -98,8 +103,8 @@ function calcular(event) {
         }
     });
 
+    // Mostrar valores mínimos, máximos y cortes con el eje X
     document.getElementById('minY').textContent = minY.toFixed(2);
     document.getElementById('maxY').textContent = maxY.toFixed(2);
     document.getElementById('cortes').textContent = cortes;
 }
-
