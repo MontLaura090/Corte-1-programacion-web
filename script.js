@@ -33,16 +33,28 @@ function calcular(event) {
     let minY = Infinity;
     let maxY = -Infinity;
     let cortes = 0;
+    let X_anterior = null;
+    let Y_anterior = null;
 
     for (let X = minX; X <= maxX; X += 0.1) {
         const y = calcularY(A, B, C, D, E, X);
+        
         if (!isNaN(y) && isFinite(y)) {
             resultados.push({ X, y });
             labels.push(X.toFixed(2));
             data.push(y.toFixed(2));
             if (y < minY) minY = y;
             if (y > maxY) maxY = y;
-            if (Math.abs(y) < 0.1) cortes++; // Detectar cortes cercanos a 0
+
+            // Detectar cambio de signo entre dos puntos consecutivos
+            if (X_anterior !== null && Y_anterior !== null) {
+                if ((Y_anterior > 0 && y < 0) || (Y_anterior < 0 && y > 0)) {
+                    cortes++; // Hubo un cruce con el eje X
+                }
+            }
+
+            X_anterior = X;
+            Y_anterior = y;
         }
     }
 
@@ -60,7 +72,7 @@ function calcular(event) {
 
     const ctx = document.getElementById('grafica').getContext('2d');
     if (window.grafica instanceof Chart) {
-        window.grafica.destroy(); // Eliminar gráfica anterior si existe
+        window.grafica.destroy(); 
     }
 
     window.grafica = new Chart(ctx, {
@@ -86,9 +98,8 @@ function calcular(event) {
         }
     });
 
-
-    // Mostrar resultados adicionales
     document.getElementById('minY').textContent = minY.toFixed(2);
     document.getElementById('maxY').textContent = maxY.toFixed(2);
     document.getElementById('cortes').textContent = cortes;
 }
+
