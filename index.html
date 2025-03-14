@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parcial 1 Programación Web - Laura Gabriela Capera COD 2216679</title>
+    <title>Calculadora de Funciones</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="text/javascript" async
@@ -11,6 +11,7 @@
     <script type="text/javascript" async
       src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -29,29 +30,22 @@
 
         <div class="content">
             <div class="form-container">
-                <form id="formulario">
+                <form id="formulario" onsubmit="calcular(event)">
                     <label for="A">Valor de A:</label>
-                    <input type="number" id="A" step="any" value="2" required>
-
+                    <input type="number" id="A" name="A" value="2"><br>
                     <label for="B">Valor de B:</label>
-                    <input type="number" id="B" step="any" value="1.5" required>
-
+                    <input type="number" id="B" name="B" value="3"><br>
                     <label for="C">Valor de C:</label>
-                    <input type="number" id="C" step="any" value="3" required>
-
+                    <input type="number" id="C" name="C" value="4"><br>
                     <label for="D">Valor de D:</label>
-                    <input type="number" id="D" step="any" value="0.5" required>
-
+                    <input type="number" id="D" name="D" value="5"><br>
                     <label for="E">Valor de E:</label>
-                    <input type="number" id="E" step="any" value="4" required>
-
-                    <label for="minX">Valor mínimo de X:</label>
-                    <input type="number" id="minX" step="any" value="-5" required>
-
-                    <label for="maxX">Valor máximo de X:</label>
-                    <input type="number" id="maxX" step="any" value="5" required>
-
-                    <button type="button" onclick="calcular(event)">Generar Gráfica</button>
+                    <input type="number" id="E" name="E" value="6"><br>
+                    <label for="minX">X Min:</label>
+                    <input type="number" id="minX" name="minX" value="-5"><br>
+                    <label for="maxX">X Max:</label>
+                    <input type="number" id="maxX" name="maxX" value="15"><br>
+                    <button type="submit">Calcular</button>
                 </form>
             </div>
 
