@@ -3,87 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parcial 1 Programación Web - Laura Gabriela Capera COD 2216679</title>
+    <title>Generador de Gráfica</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script type="text/javascript" async
-      src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script type="text/javascript" async
-      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
 </head>
 <body>
-    <div class="container">
-        <h1>Parcial 1 Programación Web</h1>
-        <h2>Laura Gabriela Capera - COD 2216679</h2>
 
-        
-        <div class="equation-container">
-            <h2>Fórmula:</h2>
-            <p>
-                $$ 
-                y = \frac{\sin(A) + X\cos(B) \cdot \frac{\sqrt{C^2}}{\cos(D)}}{X \cdot C - \sqrt{\lvert A+B \rvert}} 
-                + \frac{E \cdot X}{\sin(X)} - \frac{\cos(A)}{\sin(B)}
-                $$
-            </p>
+    <h1>Gráfica de la Función</h1>
+
+    <div class="content">
+        <!-- FORMULARIO -->
+        <div class="form-container">
+            <h2>Ingrese los valores</h2>
+            <form id="formulario">
+                <label for="A">A:</label>
+                <input type="number" id="A" step="any" value="2" required>
+
+                <label for="B">B:</label>
+                <input type="number" id="B" step="any" value="1.5" required>
+
+                <label for="C">C:</label>
+                <input type="number" id="C" step="any" value="3" required>
+
+                <label for="D">D:</label>
+                <input type="number" id="D" step="any" value="0.5" required>
+
+                <label for="E">E:</label>
+                <input type="number" id="E" step="any" value="4" required>
+
+                <label for="minX">Valor mínimo de X:</label>
+                <input type="number" id="minX" step="any" value="-5" required>
+
+                <label for="maxX">Valor máximo de X:</label>
+                <input type="number" id="maxX" step="any" value="5" required>
+
+                <button type="submit">Generar Gráfica</button>
+            </form>
         </div>
 
-        <div class="content">
-            
-            <div class="form-container">
-                <form id="formulario">
-                    <label for="A">Valor de A:</label>
-                    <input type="number" id="A" step="any" placeholder="Ingrese el valor de A" required>
-
-                    <label for="B">Valor de B:</label>
-                    <input type="number" id="B" step="any" placeholder="Ingrese el valor de B" required>
-
-                    <label for="C">Valor de C:</label>
-                    <input type="number" id="C" step="any" placeholder="Ingrese el valor de C" required>
-
-                    <label for="D">Valor de D:</label>
-                    <input type="number" id="D" step="any" placeholder="Ingrese el valor de D" required>
-
-                    <label for="E">Valor de E:</label>
-                    <input type="number" id="E" step="any" placeholder="Ingrese el valor de E" required>
-
-                    <label for="minX">Valor mínimo de X:</label>
-                    <input type="number" id="minX" step="any" placeholder="Ingrese el valor mínimo de X" required>
-
-                    <label for="maxX">Valor máximo de X:</label>
-                    <input type="number" id="maxX" step="any" placeholder="Ingrese el valor máximo de X" required>
-
-                    <button type="button" onclick="calcular(event)">Generar Gráfica</button>
-                </form>
+        <!-- RESULTADOS -->
+        <div class="result-container">
+            <h2>Resultados</h2>
+            <div class="resultados-container">
+                <table id="tabla-resultados">
+                    <thead>
+                        <tr>
+                            <th>X</th>
+                            <th>Y</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
             </div>
 
-            <div class="section result-container">
-                <h2>Valores de X e Y</h2>
-                <div class="scroll-table">
-                    <table id="tabla-resultados">
-                        <thead>
-                            <tr>
-                                <th>X</th>
-                                <th>Y</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="section chart-container">
-                <h2>Gráfica de la función</h2>
+            <div class="chart-container">
                 <canvas id="grafica"></canvas>
             </div>
 
-            <div class="section additional-results-container">
-                <h2>Resultados Adicionales</h2>
+            <div class="additional-results-container">
+                <h2>Datos Adicionales</h2>
                 <div class="additional-results">
-                    <p>Valor mínimo de Y: <span id="minY"></span></p>
-                    <p>Valor máximo de Y: <span id="maxY"></span></p>
-                    <p>Cortes detectados (cantidad): <span id="cortes"></span></p>
+                    <p><strong>Valor mínimo de Y:</strong> <span id="minY">-</span></p>
+                    <p><strong>Valor máximo de Y:</strong> <span id="maxY">-</span></p>
+                    <p><strong>Cortes con el eje X:</strong> <span id="cortes">-</span></p>
                 </div>
             </div>
         </div>
