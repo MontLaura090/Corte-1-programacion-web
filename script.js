@@ -15,14 +15,23 @@ function calcularY(A, B, C, D, E, X) {
 function calcular(event) {
     event.preventDefault(); // Evitar que el formulario se envíe y la página se recargue
 
-    // Obtener valores de los inputs
-    const A = parseFloat(document.getElementById('A').value);
-    const B = parseFloat(document.getElementById('B').value);
-    const C = parseFloat(document.getElementById('C').value);
-    const D = parseFloat(document.getElementById('D').value);
-    const E = parseFloat(document.getElementById('E').value);
-    const minX = parseFloat(document.getElementById('minX').value);
-    const maxX = parseFloat(document.getElementById('maxX').value);
+    // Valores por defecto
+    const defaultA = 1;
+    const defaultB = 1;
+    const defaultC = 1;
+    const defaultD = 1;
+    const defaultE = 1;
+    const defaultMinX = 0;
+    const defaultMaxX = 10;
+
+    // Obtener valores de los inputs o usar valores por defecto
+    const A = parseFloat(document.getElementById('A').value) || defaultA;
+    const B = parseFloat(document.getElementById('B').value) || defaultB;
+    const C = parseFloat(document.getElementById('C').value) || defaultC;
+    const D = parseFloat(document.getElementById('D').value) || defaultD;
+    const E = parseFloat(document.getElementById('E').value) || defaultE;
+    const minX = parseFloat(document.getElementById('minX').value) || defaultMinX;
+    const maxX = parseFloat(document.getElementById('maxX').value) || defaultMaxX;
 
     // Validar entradas
     if (isNaN(A) || isNaN(B) || isNaN(C) || isNaN(D) || isNaN(E) || isNaN(minX) || isNaN(maxX)) {
@@ -62,6 +71,7 @@ function calcular(event) {
         }
     }
 
+    // Mostrar resultados en la tabla
     const tablaResultados = document.querySelector('#tabla-resultados tbody');
     tablaResultados.innerHTML = ""; 
     resultados.forEach(res => {
