@@ -62,15 +62,14 @@ function calcular(event) {
         }
     }
 
-    // Mostrar resultados en la tabla
     const tablaResultados = document.querySelector('#tabla-resultados tbody');
     tablaResultados.innerHTML = ""; 
     resultados.forEach(res => {
         const fila = document.createElement('tr');
-        fila.innerHTML = 
+        fila.innerHTML = `
             <td>${res.X.toFixed(2)}</td>
             <td>${res.y.toFixed(2)}</td>
-        ;
+        `;
         tablaResultados.appendChild(fila);
     });
 
